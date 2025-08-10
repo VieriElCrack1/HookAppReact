@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { Message } from "./Message";
 
 export const SimpleForm = () => {
 
@@ -13,21 +14,21 @@ export const SimpleForm = () => {
         const { name, value } = target;
         setFormState({
             ...formState,
-            [ name ]: value
+            [name]: value
         })
     }
 
-    useEffect( () => {
-        console.log('useEffect called!');
+    useEffect(() => {
+        // console.log('useEffect called!');
     }, []); //un arreglo vacio -> significa que solo se ejecute una vez.
 
-    useEffect( () => {
-        console.log('formState change!');
+    useEffect(() => {
+        // console.log('formState change!');
     }, [formState]);
 
-    useEffect( () => {
-        console.log('email change!');
-    }, [ email ]);
+    useEffect(() => {
+        // console.log('email change!');
+    }, [email]);
 
     return (
         <>
@@ -41,8 +42,8 @@ export const SimpleForm = () => {
                         className='border border-b-gray-500 rounded-[10px] p-2 w-full'
                         placeholder='Username'
                         name='username'
-                        value={ username }
-                        onChange={ onInputChange }
+                        value={username}
+                        onChange={onInputChange}
                     />
                 </div>
                 <div >
@@ -51,11 +52,15 @@ export const SimpleForm = () => {
                         className='border border-b-gray-500 rounded-[10px] p-2 w-full'
                         placeholder='Vieri@gmail.com'
                         name='email'
-                        value={ email }
-                        onChange={ onInputChange }
+                        value={email}
+                        onChange={onInputChange}
                     />
                 </div>
             </div>
+
+            {
+                (username === 'vieri2') && <Message />
+            }
         </>
     )
 }
