@@ -19,7 +19,15 @@ export const SimpleForm = () => {
 
     useEffect( () => {
         console.log('useEffect called!');
-    });
+    }, []); //un arreglo vacio -> significa que solo se ejecute una vez.
+
+    useEffect( () => {
+        console.log('formState change!');
+    }, [formState]);
+
+    useEffect( () => {
+        console.log('email change!');
+    }, [ email ]);
 
     return (
         <>
